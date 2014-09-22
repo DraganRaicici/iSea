@@ -9,6 +9,7 @@ public class Service {
     private static Service ourInstance = new Service();
     private ArrayList<SeaCreature> seaCreatures;
     public  static final String SEACREATURE="seacreature";
+    public  static final String POSITION="position";
 
     public static Service getInstance() {
         return ourInstance;

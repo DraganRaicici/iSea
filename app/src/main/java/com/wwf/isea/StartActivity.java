@@ -26,13 +26,13 @@ public class StartActivity extends Activity {
         Button btnAddPhoto=(Button)findViewById(R.id.btn_addPicture);
         Button btnQuiz= (Button) findViewById(R.id.btn_start_quiz);
 
-        MyOnClickListener m1= new MyOnClickListener(this,1);
-        MyOnClickListener m2= new MyOnClickListener(this,2);
-        MyOnClickListener m3= new MyOnClickListener(this,3);
-        MyOnClickListener m4= new MyOnClickListener(this,4);
-        MyOnClickListener m5= new MyOnClickListener(this,5);
-        MyOnClickListener m6= new MyOnClickListener(this,6);
-        MyOnClickListener m7= new MyOnClickListener(this,7);
+        MyOnClickListener m1= new MyOnClickListener(this,0);
+        MyOnClickListener m2= new MyOnClickListener(this,1);
+        MyOnClickListener m3= new MyOnClickListener(this,2);
+        MyOnClickListener m4= new MyOnClickListener(this,3);
+        MyOnClickListener m5= new MyOnClickListener(this,4);
+        MyOnClickListener m6= new MyOnClickListener(this,5);
+        MyOnClickListener m7= new MyOnClickListener(this,6);
 
         btnCamera.setOnClickListener(m1);
         btnSearch.setOnClickListener(m2);
@@ -52,23 +52,19 @@ public class StartActivity extends Activity {
 
 
 switch (position) {
-    case 1: {
+    case 0: {
         Intent intentCamera = new Intent("android.media.action.IMAGE_CAPTURE");
 
         startActivity(intentCamera);
         break;
-    }
-    case 3:{
 
-
-
-        startActivity(new Intent(activity, MainActivity.class));
-        break;
 
     }
     default:
         Intent intent = new Intent(activity, MainActivity.class);
-        intent.putExtra("position", position);
+        Bundle b= new Bundle();
+        b.putInt(Service.POSITION, position);
+        intent.putExtras(b);
         startActivity(intent);
         break;
 

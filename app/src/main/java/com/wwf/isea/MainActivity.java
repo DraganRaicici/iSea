@@ -37,6 +37,10 @@ public class MainActivity extends Activity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         //TODO set right position on start
+        Bundle bundle=getIntent().getExtras();
+        int position= bundle.getInt(Service.POSITION);
+        onNavigationDrawerItemSelected(position);
+
     }
 
     @Override

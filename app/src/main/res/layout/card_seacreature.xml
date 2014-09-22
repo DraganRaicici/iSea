@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/sea_card_image"
+        android:background="@drawable/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+
+    <!-- Use same ID to use built-in features -->
+
+    <TextView
+        android:id="@+id/sea_card_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:text="@string/action_example"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+
+        android:id="@+id/sea_card_description"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:text="@string/action_settings"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

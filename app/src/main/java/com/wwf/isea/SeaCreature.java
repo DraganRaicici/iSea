@@ -1,11 +1,14 @@
 package com.wwf.isea;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by dragos on 9/22/14.
  */
-public class SeaCreature {
+public class SeaCreature implements Parcelable {
 
-    private String imagePath;
+    private int imagePath;
     private String name;
     private String description;
     private int id;
@@ -13,7 +16,7 @@ public class SeaCreature {
 
     public SeaCreature(){}
 
-    public SeaCreature(int id,String name, String description, String imagePath,String category){
+    public SeaCreature(int id,String name, String description, int imagePath,String category){
         this.description=description;
         this.imagePath=imagePath;
         this.name=name;
@@ -22,11 +25,11 @@ public class SeaCreature {
 
     }
 
-    public String getImagePath() {
+    public int getImagePath() {
         return imagePath;
     }
 
-    public void setImagePath(String imagePath) {
+    public void setImagePath(int imagePath) {
         this.imagePath = imagePath;
     }
 
@@ -58,5 +61,50 @@ public class SeaCreature {
     }
     public void setCategory(String category){
         this.category=category;
+    }
+
+
+
+    //PARCELABLE
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(description);
+        parcel.writeString(category);
+        parcel.writeInt(imagePath);
+        parcel.writeInt(id);
+    }
+    public SeaCreature(Parcel in)
+    {
+        readFromParcel(in);
+
+    }
+    @SuppressWarnings("rawtypes")
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public SeaCreature createFromParcel(Parcel in)
+        {
+            return new SeaCreature(in);
+        }
+
+        public SeaCreature[] newArray(int size)
+        {
+            return new SeaCreature[size];
+        }
+
+    };
+
+    public void readFromParcel(Parcel in)
+    {
+        name = in.readString();
+        description=in.readString();
+        category= in.readString();
+        imagePath=in.readInt();
+        id=in.readInt();
+
     }
 }

@@ -1,7 +1,8 @@
 package com.wwf.isea;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,15 +16,14 @@ import it.gmariotti.cardslib.library.internal.Card;
  */
 public class SeaCreatureCard extends Card {
 
-    private int mImageResourceId;
-    private String mDescription;
-    private String mName;
+
+    private SeaCreature seaCreature;
     public SeaCreatureCard(Context context) {
         super(context);
     }
 
     public SeaCreatureCard(Context context, int innerLayout) {
-        super(context, innerLayout);
+        super(context, innerLayout);init();
     }
 
     public void init(){
@@ -34,8 +34,13 @@ public class SeaCreatureCard extends Card {
 
                 //DAO dao=DAO.getInstance();
 
-                Toast t=Toast.makeText(getContext(), "sadsadas.",Toast.LENGTH_SHORT);
-                t.show();
+
+                Intent i = new Intent(mContext, SeaCreatureActivity.class);
+                Bundle bundle = new Bundle();
+
+                bundle.putParcelable(Service.SEACREATURE,seaCreature);
+                i.putExtras(bundle);
+                mContext.startActivity(i);
             }
         });
 
@@ -49,41 +54,49 @@ public class SeaCreatureCard extends Card {
         ImageView imageView = (ImageView) parent.findViewById(R.id.sea_card_image);
 
         if (name!=null) {
-            name.setText(mName);
-            Log.w("bbb", mName);
+            name.setText(seaCreature.getName());
+
         }
         if (description!=null)
-            description.setText(mDescription);
+            description.setText(seaCreature.getDescription());
 
         if (imageView!=null)
-            imageView.setImageResource(mImageResourceId);
+            imageView.setImageResource(seaCreature.getImagePath());
     }
 
 
     public void setName(String name) {
-        this.mName=name;
+        seaCreature.setName(name);
     }
 
     public void setDescription(String description){
-        mDescription=description;
+        seaCreature.setDescription(description);
     }
 
     public void setImageView(int resourceID)
     {
-        mImageResourceId=resourceID;
+        seaCreature.setImagePath(resourceID);
     }
 
 
     public String getName() {
-        return mName;
+        return seaCreature.getName();
     }
 
     public String getDescription() {
-        return mDescription;
+        return seaCreature.getDescription();
     }
 
     public int getImageResourceId(){
 
-        return  mImageResourceId;
+        return  seaCreature.getImagePath();
+    }
+
+    public SeaCreature getSeaCreature() {
+        return seaCreature;
+    }
+
+    public void setSeaCreature(SeaCreature seaCreature) {
+        this.seaCreature = seaCreature;
     }
 }

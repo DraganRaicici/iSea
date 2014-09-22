@@ -62,11 +62,7 @@ public class ListFragment extends Fragment {
 
         for(SeaCreature s: seaCreatures){
             SeaCreatureCard sCard= new SeaCreatureCard(getActivity(),R.layout.card_seacreature);
-            sCard.setName(s.getName());
-            sCard.setDescription(s.getDescription());
-            //TODO Image make setImageView to get String not int
-            //sCard.setImageView(s.getImagePath());
-            sCard.setImageView(R.drawable.nemo);
+            sCard.setSeaCreature(s);
 
             cards.add(sCard);
         }

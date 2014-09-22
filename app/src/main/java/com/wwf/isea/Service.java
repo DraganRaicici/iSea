@@ -10,6 +10,8 @@ public class Service {
     private ArrayList<SeaCreature> seaCreatures;
     public  static final String SEACREATURE="seacreature";
     public  static final String POSITION="position";
+    public  static final String LATITUDE="longitude";
+    public  static final String LONGITUDE="latitude";
 
     public static Service getInstance() {
         return ourInstance;

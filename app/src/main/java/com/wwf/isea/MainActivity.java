@@ -2,9 +2,11 @@ package com.wwf.isea;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -21,11 +23,14 @@ public class MainActivity extends Activity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    private MyLocation myLocation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -50,9 +55,20 @@ public class MainActivity extends Activity
         switch (position)
         {
             case 2:
+
+
+                Fragment mapFragment=MyMapFragment.newInstance(position + 1);
+                Bundle bundle = new Bundle();
+                myLocation=new MyLocation(MainActivity.this);
+                Log.d("In MainActivity",myLocation.getLongitude()+"");
+                bundle.putDouble(Service.LONGITUDE,myLocation.getLongitude());
+                bundle.putDouble(Service.LATITUDE,myLocation.getLatitude());
+                mapFragment.setArguments(bundle);
+
             fragmentManager.beginTransaction()
-                    .replace(R.id.container, MyMapFragment.newInstance(position + 1))
+                    .replace(R.id.container, mapFragment)
                     .commit();
+
 
             break;
         default:
@@ -113,6 +129,7 @@ public class MainActivity extends Activity
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
 

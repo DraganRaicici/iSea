@@ -3,6 +3,7 @@ package com.wwf.isea;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ public class ListFragment extends Fragment {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        private Boolean searched=false;
+        private String mQuery="";
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -47,12 +50,48 @@ public class ListFragment extends Fragment {
             //View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
             CardGridStaggeredView cListView= new CardGridStaggeredView(getActivity());
-            ArrayList<Card> cards= getCards();
+            ArrayList<Card> cards=null;
+            if(searched==true){
+                cards=getSearchedCards();
+            }else {
+
+                cards= getCards();
+            }
             CardGridStaggeredArrayAdapter cAdapter= new CardGridStaggeredArrayAdapter(getActivity(),cards);
             cListView.setAdapter(cAdapter);
             return cListView;
            
         }
+
+    public void setQuery(String query) {
+        searched=true;
+        mQuery=query;
+    }
+    private ArrayList<Card> getSearchedCards() {
+        ArrayList<Card> cards= new ArrayList<Card>();
+
+        Service service =Service.getInstance();
+        ArrayList<SeaCreature> seaCreatures=service.getSeaCreatures();
+        for(SeaCreature s:seaCreatures)
+        {
+            String name=s.getName();
+            if(mQuery.length()<=name.length())
+            {
+                String s1=mQuery.toLowerCase().substring(0);
+                String s2=name.toLowerCase().substring(0,mQuery.length());
+
+                if(s1.equals(s2))
+                {
+
+                    SeaCreatureCard sCard= new SeaCreatureCard(getActivity(),R.layout.card_seacreature);
+                    sCard.setSeaCreature(s);
+
+                    cards.add(sCard);
+                }
+            }
+        }
+        return cards;
+    }
 
     private ArrayList<Card> getCards() {
         ArrayList<Card> cards= new ArrayList<Card>();
@@ -70,6 +109,8 @@ public class ListFragment extends Fragment {
         return cards;
     }
 
+
+
     @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
@@ -78,5 +119,6 @@ public class ListFragment extends Fragment {
         }
 
 
- }
+
+}
 

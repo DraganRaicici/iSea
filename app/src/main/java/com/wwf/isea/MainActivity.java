@@ -28,7 +28,7 @@ public class MainActivity extends Activity
      */
     private CharSequence mTitle;
     private MyLocation myLocation;
-    private int mPosition;
+    private int mPosition=-1;
 
 
     @Override
@@ -36,6 +36,10 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Bundle bundle=getIntent().getExtras();
+        int position= bundle.getInt(Service.POSITION);
+
+        mPosition=position;
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -46,11 +50,8 @@ public class MainActivity extends Activity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        Bundle bundle=getIntent().getExtras();
-        int position= bundle.getInt(Service.POSITION);
-        mPosition=position;
-        onNavigationDrawerItemSelected(position);
 
+        onNavigationDrawerItemSelected(position);
         handleIntent(getIntent());
     }
 
@@ -58,34 +59,50 @@ public class MainActivity extends Activity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
+
+        if (position==0&&mPosition==-1)
+            return;
         mPosition=position;
+
         switch (position)
         {
-            case 2:
+            case 0:
+            {
 
+                Intent intentCamera = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intentCamera);
+                break;
+            }
+            case 2: {
 
-                Fragment mapFragment=MyMapFragment.newInstance(position + 1);
+                Fragment mapFragment = MyMapFragment.newInstance(position + 1);
                 Bundle bundle = new Bundle();
-                myLocation=new MyLocation(MainActivity.this);
-                Log.d("In MainActivity",myLocation.getLongitude()+"");
-                bundle.putDouble(Service.LONGITUDE,myLocation.getLongitude());
-                bundle.putDouble(Service.LATITUDE,myLocation.getLatitude());
+                myLocation = new MyLocation(MainActivity.this);
+                Log.d("In MainActivity", myLocation.getLongitude() + "");
+                bundle.putDouble(Service.LONGITUDE, myLocation.getLongitude());
+                bundle.putDouble(Service.LATITUDE, myLocation.getLatitude());
                 mapFragment.setArguments(bundle);
 
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, mapFragment)
-                    .commit();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, mapFragment)
+                        .commit();
 
-            break;
-            case 3:
-                fragmentManager.beginTransaction().replace(R.id.container,ProfileFragment.newInstance(position +1))
+                break;
+
+            }
+            case 3: {
+                fragmentManager.beginTransaction().replace(R.id.container, ProfileFragment.newInstance(position + 1))
                         .commit();
                 break;
-        default:
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, ListFragment.newInstance(position + 1))
-                .commit();
-    }}
+            }
+            default:
+            {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, ListFragment.newInstance(position + 1))
+                        .commit();
+            }
+        }
+    }
 
     public void onSectionAttached(int number) {
         switch (number) {
@@ -182,13 +199,14 @@ public class MainActivity extends Activity
      */
     public void doMySearch(String query) {
 
-        FragmentManager fragmentManager = getFragmentManager();
-        ListFragment listFragment=ListFragment.newInstance(mPosition+1);
-        listFragment.setQuery(query);
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, listFragment)
-                .commit();
-
+        if(query!=""&&query!=null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            ListFragment listFragment = ListFragment.newInstance(mPosition + 1);
+            listFragment.setQuery(query);
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, listFragment)
+                    .commit();
+        }
 
     }
 

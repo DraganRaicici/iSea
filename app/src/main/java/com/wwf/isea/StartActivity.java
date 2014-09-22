@@ -51,25 +51,22 @@ public class StartActivity extends Activity {
         public void onClick(View view) {
 
 
-switch (position) {
-    case 0: {
-        Intent intentCamera = new Intent("android.media.action.IMAGE_CAPTURE");
-
-        startActivity(intentCamera);
-        break;
-
-
-    }
-    default:
-        Intent intent = new Intent(activity, MainActivity.class);
-        Bundle b= new Bundle();
-        b.putInt(Service.POSITION, position);
-        intent.putExtras(b);
-        startActivity(intent);
-        break;
-
-}
+        switch (position) {
+            case 0: {
+                Intent intentCamera = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intentCamera);
+                break;
+            }
+            default: {
+                Intent intent = new Intent(activity, MainActivity.class);
+                Bundle b = new Bundle();
+                b.putInt(Service.POSITION, position);
+                intent.putExtras(b);
+                startActivity(intent);
+                break;
+            }
         }
+    }
 
         public MyOnClickListener(Activity activity,int position)
         {

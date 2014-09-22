@@ -55,6 +55,14 @@ switch (position) {
         startActivity(intentCamera);
         break;
     }
+    case 3:{
+
+
+
+        startActivity(new Intent(activity, MainActivity.class));
+        break;
+
+    }
     default:
         Intent intent = new Intent(activity, MainActivity.class);
         intent.putExtra("position", position);

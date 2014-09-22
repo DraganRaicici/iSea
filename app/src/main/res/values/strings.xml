@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">iSea</string>
+    <string name="drawer_1_camera">Take photo</string>
+    <string name="drawer_2_search">Search</string>
+    <string name="drawer_3_map">Near you</string>
+    <string name="drawer_4_log">My Profile</string>
+    <string name="drawer_5_quiz">Quiz</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

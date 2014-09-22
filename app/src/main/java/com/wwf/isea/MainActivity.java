@@ -71,6 +71,10 @@ public class MainActivity extends Activity
 
 
             break;
+            case 3:
+                fragmentManager.beginTransaction().replace(R.id.container,ProfileFragment.newInstance(position +1))
+                        .commit();
+                break;
         default:
         fragmentManager.beginTransaction()
                 .replace(R.id.container, ListFragment.newInstance(position + 1))
@@ -92,6 +96,14 @@ public class MainActivity extends Activity
                 mTitle = getString(R.string.drawer_4_log);
                 break;
             case 5:
+                mTitle = getString(R.string.action_Food);
+                break;
+            case 6 :
+
+                mTitle = getString(R.string.action_addPhoto);
+                break;
+            case 7:
+
                 mTitle = getString(R.string.drawer_5_quiz);
                 break;
         }

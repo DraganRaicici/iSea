@@ -10,6 +10,8 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+    <string name="action_addPhoto">Add Photo</string>
+    <string name="action_Food"> Sea Food </string>
     <string name="action_settings">Settings</string>
 
 </resources>

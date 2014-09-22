@@ -15,7 +15,7 @@
             android:id="@+id/btn_start_camera"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:text="@string/action_example"
+            android:text="@string/drawer_1_camera"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@android:color/white"
@@ -25,13 +25,15 @@
             android:id="@+id/btn_start_search"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:text="@string/action_example"
+            android:text="@string/drawer_2_search"
             android:textColor="@android:color/white"
             android:background="@android:color/holo_blue_dark"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_action_search"/>
-    </LinearLayout>   <LinearLayout
+    </LinearLayout>
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -41,7 +43,7 @@
         android:id="@+id/btn_start_map"
         android:layout_weight="1"
         android:layout_width="0dp"
-        android:text="@string/action_example"
+        android:text="@string/drawer_3_map"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_green_dark"
         android:layout_gravity="center"
@@ -52,16 +54,42 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:textColor="@android:color/white"
-        android:text="@string/action_example"
+        android:text="@string/drawer_4_log"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_dark"
         android:layout_gravity="center"
         android:drawableTop="@drawable/ic_social_person"/>
 </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btn_food"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="@string/action_Food"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_blue_light"
+            android:drawableTop="@drawable/ic_device_access_storage_1"/>
+        <Button
+            android:id="@+id/btn_addPicture"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="@string/action_addPhoto"
+            android:textColor="@android:color/white"
+            android:background="@android:color/darker_gray"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_content_new_picture"/>
+    </LinearLayout>
     <Button
         android:id="@+id/btn_start_quiz"
         android:layout_width="match_parent"
-        android:text="@string/action_example"
+        android:text="@string/drawer_5_quiz"
         android:textColor="@android:color/white"
         android:background="@android:color/holo_purple"
         android:layout_height="wrap_content"

@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/sea_card_image"
-        android:background="@drawable/ic_launcher"
         android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         />
@@ -15,7 +15,8 @@
     <!-- Use same ID to use built-in features -->
 
     <TextView
-        android:id="@+id/sea_card_title"
+        android:id="@+id/sea_card_name"
+        android:textColor="@android:color/holo_blue_dark"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_width="wrap_content"
@@ -29,6 +30,7 @@
         android:layout_marginStart="10dp"
         android:layout_width="wrap_content"
         android:text="@string/action_settings"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:maxLength="40" />
 
 </LinearLayout>

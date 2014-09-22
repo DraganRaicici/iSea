@@ -15,6 +15,9 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        Service service= Service.getInstance();
+        service.createSomeObjects();
+
         Button btnCamera= (Button) findViewById(R.id.btn_start_camera);
         Button btnSearch= (Button) findViewById(R.id.btn_start_search);
         Button btnMap= (Button) findViewById(R.id.btn_start_map);

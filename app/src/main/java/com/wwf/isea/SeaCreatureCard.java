@@ -1,8 +1,11 @@
 package com.wwf.isea;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.internal.Card;
@@ -14,7 +17,7 @@ public class SeaCreatureCard extends Card {
 
     private int mImageResourceId;
     private String mDescription;
-    private String mTitle;
+    private String mName;
     public SeaCreatureCard(Context context) {
         super(context);
     }
@@ -41,15 +44,24 @@ public class SeaCreatureCard extends Card {
     @Override
     public void setupInnerViewElements(ViewGroup parent, View view) {
         //Retrieve elements
-        //TextView title = (TextView) parent.findViewById(R.id.movie_card_title);
-        //if (title!=null)
-        //    title.setText(mTitle);
+        TextView name = (TextView) parent.findViewById(R.id.sea_card_name);
+        TextView description = (TextView) parent.findViewById(R.id.sea_card_description);
+        ImageView imageView = (ImageView) parent.findViewById(R.id.sea_card_image);
 
+        if (name!=null) {
+            name.setText(mName);
+            Log.w("bbb", mName);
+        }
+        if (description!=null)
+            description.setText(mDescription);
+
+        if (imageView!=null)
+            imageView.setImageResource(mImageResourceId);
     }
 
-    @Override
-    public void setTitle(String title) {
-        mTitle=title;
+
+    public void setName(String name) {
+        this.mName=name;
     }
 
     public void setDescription(String description){
@@ -61,9 +73,9 @@ public class SeaCreatureCard extends Card {
         mImageResourceId=resourceID;
     }
 
-    @Override
-    public String getTitle() {
-        return mTitle;
+
+    public String getName() {
+        return mName;
     }
 
     public String getDescription() {

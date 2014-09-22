@@ -9,14 +9,16 @@ public class SeaCreature {
     private String name;
     private String description;
     private int id;
+    private String category;
 
     public SeaCreature(){}
 
-    public SeaCreature(int id,String name, String description, String imagePath){
+    public SeaCreature(int id,String name, String description, String imagePath,String category){
         this.description=description;
         this.imagePath=imagePath;
         this.name=name;
         this.id=id;
+        this.category=category;
 
     }
 
@@ -50,5 +52,11 @@ public class SeaCreature {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public String getCategory(){
+        return  category;
+    }
+    public void setCategory(String category){
+        this.category=category;
     }
 }

@@ -17,6 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by rdgary on 9/22/14.
+ * hello
  */
 public class MyMapFragment extends Fragment{
 

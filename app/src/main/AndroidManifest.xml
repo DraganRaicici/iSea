@@ -40,6 +40,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".PagerActivity"
+            android:label="@string/app_name" >
+
+        </activity>
+        <activity
             android:name=".SeaCreatureActivity"
             android:label="@string/app_name" >
 

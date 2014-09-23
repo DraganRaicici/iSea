@@ -52,9 +52,17 @@ public class StartActivity extends Activity {
 
 
         switch (position) {
-            case 0: {
+            case 0:
+            {
                 Intent intentCamera = new Intent("android.media.action.IMAGE_CAPTURE");
                 startActivity(intentCamera);
+                break;
+            }
+            case 6:
+            {
+                Intent intent = new Intent(activity, PagerActivity.class);
+
+                startActivity(intent);
                 break;
             }
             default: {

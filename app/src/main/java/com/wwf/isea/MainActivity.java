@@ -96,6 +96,10 @@ public class MainActivity extends Activity
                         .commit();
                 break;
             }
+            case 6:
+                Intent intent = new Intent(this, PagerActivity.class);
+                startActivity(intent);
+                break;
             default:
             {
                 fragmentManager.beginTransaction()
@@ -179,6 +183,7 @@ public class MainActivity extends Activity
 
 
     private void handleIntent(Intent intent) {
+        onSectionAttached(mPosition);
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);

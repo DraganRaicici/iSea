@@ -32,7 +32,7 @@ public class Service {
         int image2=R.drawable.centropyge_loricula;
         int image3=R.drawable.chaetodon_falcula;
         int image4=R.drawable.luidia;
-        int image5=R.drawable.cucumber;
+        int image5=R.drawable.level_up;
         int image6=R.drawable.worm;
         int image7=R.drawable.jellyfish;
         int image8=R.drawable.seal;

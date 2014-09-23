@@ -61,7 +61,7 @@ public class PagerFragment extends Fragment {
                 btn_Next.setVisibility(View.INVISIBLE);
                 btn_Previous.setVisibility(View.INVISIBLE);
                 ImageView img=(ImageView) rootView.findViewById(R.id.quiz_img);
-                img.setImageResource(R.drawable.cucumber);
+                img.setImageResource(R.drawable.level_up);
                 final Activity activity=getActivity();
                 img.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -121,7 +121,7 @@ public class PagerFragment extends Fragment {
         {
             case 0:
             {
-                question="Is it a fish?"+position;
+                question="Is it a fish?";
                 answer1="Yes";
                 answer2="No";
 
@@ -130,7 +130,7 @@ public class PagerFragment extends Fragment {
             case 1:
             {
 
-                question="Does it have spots?"+position;
+                question="Does it have spots?";
                 answer1="Yes";
                 answer2="No";
                 break;
@@ -138,7 +138,7 @@ public class PagerFragment extends Fragment {
             case 2:
             {
 
-                question="It lives in salt water?"+position;
+                question="It lives in the sea ?";
                 answer1="Yes";
                 answer2="No";
                 break;
@@ -146,7 +146,7 @@ public class PagerFragment extends Fragment {
             case 3:
             {
 
-                question="Is it a fish?"+position;
+                question="Is his name Nemo?";
                 answer1="Yes";
                 answer2="No";
                 break;
@@ -154,13 +154,13 @@ public class PagerFragment extends Fragment {
             case 4:
             {
 
-                question="Is it a fish?"+position;
+                question="Is his colour orange ?";
                 answer1="Yes";
                 answer2="No";
                 break;
             }
             case 5: {
-                question = "Is it a fish?" + position;
+                question = "Is he famous ?" ;
                 answer1 = "Yes";
                 answer2 = "No";
                 break;

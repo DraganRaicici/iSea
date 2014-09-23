@@ -15,6 +15,8 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        getActionBar().hide();
+
         Service service= Service.getInstance();
         service.createSomeObjects();
 

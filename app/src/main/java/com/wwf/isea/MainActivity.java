@@ -41,9 +41,6 @@ public class MainActivity extends Activity
 
         mPosition=position;
 
-
-
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -82,6 +79,7 @@ public class MainActivity extends Activity
                 Bundle bundle = new Bundle();
                 myLocation = new MyLocation(MainActivity.this);
                 Log.d("In MainActivity", myLocation.getLongitude() + "");
+                bundle.putParcelableArrayList("array",Service.getInstance().getSeaCreatures());
                 bundle.putDouble(Service.LONGITUDE, myLocation.getLongitude());
                 bundle.putDouble(Service.LATITUDE, myLocation.getLatitude());
                 mapFragment.setArguments(bundle);

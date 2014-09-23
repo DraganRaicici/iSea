@@ -1,7 +1,14 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    >
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<ScrollView
+
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_alignBottom="@+id/lin">
 <LinearLayout
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
@@ -15,20 +22,70 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name" />
 
-    <TextView style="?android:textAppearanceMedium"
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RadioButton
+        style="?android:textAppearanceMedium"
         android:id="@+id/quiz_text_ans1"
-        android:padding="16dp"
-        android:lineSpacingMultiplier="1.2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name" />
 
-    <TextView style="?android:textAppearanceMedium"
-        android:id="@+id/quiz_text_ans2"
-        android:padding="16dp"
         android:lineSpacingMultiplier="1.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        />
+
+    <RadioButton
+        style="?android:textAppearanceMedium"
+        android:id="@+id/quiz_text_ans2"
+
+        android:lineSpacingMultiplier="1.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        />
+    </RadioGroup>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/nemo"/>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:id="@+id/lin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name" />
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/prev_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/prev" />
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/next" />
+
     </LinearLayout>
-</ScrollView>
+
+</RelativeLayout>

@@ -1,13 +1,20 @@
 package com.wwf.isea;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by dragos on 9/23/14.
@@ -17,10 +24,11 @@ public class PagerFragment extends Fragment {
     String question;
     String answer1;
     String answer2;
+    boolean isFinished=false;
 
     // Container Activity must implement this interface
     public interface OnNextPageListener {
-        public void onNextPageSelected(int position);
+        public void onNextPageSelected(int position,boolean isNext);
     }
 
     // define listener in fragment
@@ -33,26 +41,39 @@ public class PagerFragment extends Fragment {
                     R.layout.fragment_main, container, false);
 
             TextView q=(TextView) rootView.findViewById(R.id.quiz_text_question);
-            TextView s1=(TextView) rootView.findViewById(R.id.quiz_text_ans1);
-            TextView s2=(TextView) rootView.findViewById(R.id.quiz_text_ans2);
+            final RadioButton s1=(RadioButton) rootView.findViewById(R.id.quiz_text_ans1);
+            RadioButton s2=(RadioButton) rootView.findViewById(R.id.quiz_text_ans2);
+            Button btn_Next =(Button)rootView.findViewById(R.id.next_button);
+            Button btn_Previous =(Button)rootView.findViewById(R.id.prev_button);
 
             q.setText(question);
             s1.setText(answer1);
             s2.setText(answer2);
 
-            if(position%2==0)
-            s1.setOnClickListener(new View.OnClickListener() {
+
+            btn_Next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mNextPageListener.onNextPageSelected(position);
+                    if (s1.isChecked()) {
+                        mNextPageListener.onNextPageSelected(position, true);
+                    }else{
+                        Toast.makeText(getActivity(), "Look again at the picture",
+                                Toast.LENGTH_LONG).show();
+                    }
+
                 }
             });
-            s2.setOnClickListener(new View.OnClickListener() {
+            btn_Previous.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mNextPageListener.onNextPageSelected(position);
+                    mNextPageListener.onNextPageSelected(position, false);
                 }
             });
+
+
+
+
+
             return rootView;
         }
 
@@ -60,14 +81,26 @@ public class PagerFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+
         try {
             mNextPageListener = (OnNextPageListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnNextPageListener");
         }
+        if (isFinished==true) {
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
 
+            alertDialog.setMessage("YOU KNOW YOUR FISHES ");
+            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
 
+                }
+            });
+            alertDialog.setIcon(R.drawable.sea_monster);
+            alertDialog.show();
+
+        }
 
 
     }
@@ -81,12 +114,13 @@ public class PagerFragment extends Fragment {
                 question="Is it a fish?"+position;
                 answer1="Yes";
                 answer2="No";
+
                 break;
             }
             case 1:
             {
 
-                question="Is it a fish?"+position;
+                question="Does it have spots?"+position;
                 answer1="Yes";
                 answer2="No";
                 break;
@@ -94,7 +128,7 @@ public class PagerFragment extends Fragment {
             case 2:
             {
 
-                question="Is it a fish?"+position;
+                question="It lives in salt water?"+position;
                 answer1="Yes";
                 answer2="No";
                 break;
@@ -115,6 +149,11 @@ public class PagerFragment extends Fragment {
                 answer2="No";
                 break;
             }
+            case 5:
+            {
+                isFinished=true;
+            }
+
         }
     }
 

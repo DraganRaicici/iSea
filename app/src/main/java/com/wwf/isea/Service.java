@@ -53,14 +53,27 @@ public class Service {
         seaCreaturesForUser=new ArrayList<SeaCreature>();
 
 
-        int image=R.drawable.nemo;
-        String loreIp= "Lorem ipsum dolor sit amet";
-        SeaCreature seaCreature = null;
+        int image1=R.drawable.blue_spotted;
+        int image2=R.drawable.centropyge_loricula;
+        int image3=R.drawable.chaetodon_falcula;
+        int image4=R.drawable.nemo;
+        String blueSpoted= "Deep black to tan fish with blue spots throughout";
+        String centropyge="Vivid orange-red with vertical black stripes and blue patches toward the end of the dorsal and anal fins.";
+        String chaetodon="Often confused with C. ulietensis, but easily distinguished. The saddles are wedge shaped rather than stripes and do not reach the underside. Overall more yellow coloring. ";
+        String nemo="THE CUTTEST FISH EVER ";
+        SeaCreature seaCreature1 = new SeaCreature(1,"Cephalopholis argus",blueSpoted,image1,"Blue dot grouper");
+        SeaCreature seaCreature2 = new SeaCreature(2,"Angelfish",centropyge,image2,"Centropyge loricula");
+        SeaCreature seaCreature3 = new SeaCreature(3,"Butterflyfish",chaetodon,image3,"Chaetodon falcula");
+        SeaCreature seaCreature4 = new SeaCreature(4,"NEMO",nemo,image4,"PIXAR");
 
-        for(int i =0;i< 5; i++){
-            seaCreature=new SeaCreature(i,"FISH","That is a cute fish",image,"Fish/round");
-            seaCreaturesForUser.add(seaCreature);
-        }
+
+
+        seaCreaturesForUser.add(seaCreature1);
+        seaCreaturesForUser.add(seaCreature2);
+        seaCreaturesForUser.add(seaCreature3);
+        seaCreaturesForUser.add(seaCreature4);
+
+
 
 
 

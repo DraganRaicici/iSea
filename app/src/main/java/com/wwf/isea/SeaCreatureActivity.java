@@ -20,7 +20,9 @@ public class SeaCreatureActivity extends Activity {
 
         ImageView imgView=(ImageView) findViewById(R.id.sea_activity_image);
         TextView nameView=(TextView) findViewById(R.id.sea_activity_name);
+        TextView descriptionView=(TextView) findViewById(R.id.sea_description);
 
+        descriptionView.setText(seaCreature.getDescription());
         nameView.setText(seaCreature.getName());
         imgView.setImageResource(seaCreature.getImagePath());
 

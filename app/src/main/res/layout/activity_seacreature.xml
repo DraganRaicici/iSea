@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff">
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#fff">
 
         <ImageView
             android:id="@+id/sea_activity_image"
@@ -19,7 +21,14 @@
             android:id="@+id/sea_activity_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/action_example"/>
+            android:text="@string/action_example"
+            android:padding="7dp"/>
+        <TextView
+            android:id="@+id/sea_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="7dp"/>
+
 
     </LinearLayout>
 </ScrollView>

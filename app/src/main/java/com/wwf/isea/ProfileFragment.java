@@ -1,5 +1,6 @@
 package com.wwf.isea;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,8 +49,8 @@ public class ProfileFragment extends Fragment {
         String userName = "Steve Jobs";
 
         String email = "SteveJobs@apple.com";
-        String citi = "Aarhus";
-        int rating = 5;
+        String citi = "Sillicon Valey ";
+        int rating = 3;
 
         TextView name = (TextView) rootView.findViewById(R.id.textViewName);
         TextView emaill = (TextView) rootView.findViewById(R.id.textViewEmail);
@@ -97,5 +98,11 @@ public class ProfileFragment extends Fragment {
         return cards;
 
 
+    }
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        ((MainActivity) activity).onSectionAttached(
+                getArguments().getInt(ARG_SECTION_NUMBER));
     }
 }

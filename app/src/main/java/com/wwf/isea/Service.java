@@ -32,12 +32,12 @@ public class Service {
         SeaCreature seaCreature=null;
         for (int i = 0; i < 20; i++) {
 
-            seaCreature = new SeaCreature(i,"Fish"+i,"it is a nice fish"+i+loremipsum,image,"fish/round");
+            seaCreature = new SeaCreature(i,"Fish"+i,"it is a nice fish"+i+loremipsum,image,"fish/round",i*10,i*2);
             seaCreatures.add(seaCreature);
         }
         for (int i = 20; i < 40; i++) {
 
-            seaCreature = new SeaCreature(i,"Plant"+i,"My pant is green"+i,image,"plant/tall");
+            seaCreature = new SeaCreature(i,"Plant"+i,"My pant is green"+i,image,"plant/tall",i*2,i*10);
             seaCreatures.add(seaCreature);
         }
 
@@ -61,10 +61,10 @@ public class Service {
         String centropyge="Vivid orange-red with vertical black stripes and blue patches toward the end of the dorsal and anal fins.";
         String chaetodon="Often confused with C. ulietensis, but easily distinguished. The saddles are wedge shaped rather than stripes and do not reach the underside. Overall more yellow coloring. ";
         String nemo="THE CUTTEST FISH EVER ";
-        SeaCreature seaCreature1 = new SeaCreature(1,"Cephalopholis argus",blueSpoted,image1,"Blue dot grouper");
-        SeaCreature seaCreature2 = new SeaCreature(2,"Angelfish",centropyge,image2,"Centropyge loricula");
-        SeaCreature seaCreature3 = new SeaCreature(3,"Butterflyfish",chaetodon,image3,"Chaetodon falcula");
-        SeaCreature seaCreature4 = new SeaCreature(4,"NEMO",nemo,image4,"PIXAR");
+        SeaCreature seaCreature1 = new SeaCreature(1,"Cephalopholis argus",blueSpoted,image1,"Blue dot grouper",10,10);
+        SeaCreature seaCreature2 = new SeaCreature(2,"Angelfish",centropyge,image2,"Centropyge loricula",10,11);
+        SeaCreature seaCreature3 = new SeaCreature(3,"Butterflyfish",chaetodon,image3,"Chaetodon falcula",10,12);
+        SeaCreature seaCreature4 = new SeaCreature(4,"NEMO",nemo,image4,"PIXAR",10,13);
 
 
 

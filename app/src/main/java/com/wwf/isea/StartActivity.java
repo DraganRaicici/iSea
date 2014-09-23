@@ -61,7 +61,6 @@ public class StartActivity extends Activity {
             case 6:
             {
                 Intent intent = new Intent(activity, PagerActivity.class);
-
                 startActivity(intent);
                 break;
             }

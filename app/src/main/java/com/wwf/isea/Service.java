@@ -14,6 +14,7 @@ public class Service {
     public  static final String POSITION="position";
     public  static final String LATITUDE="longitude";
     public  static final String LONGITUDE="latitude";
+    private List<SeaCreature> seaFood;
 
     public static Service getInstance() {
         return ourInstance;
@@ -56,7 +57,6 @@ public class Service {
                 " Size: the shell can reach up to 30 cm.";
         String fish=" body rather massive. Head broad, its length less than or equal to body depth. Strong canine-like teeth (7-11/7-12). Lips with 7-9 folds. Dorsal finrays XVIII-XXI + 9-13; anal finrays III + 8-12. Scales along lateral line 41-47, on temporo-occipital surface 15-25, on inter-operculum 0-3; ";
 
-       // String loremipsum="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum sodales nisl, sit amet scelerisque arcu dignissim sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum euismod cursus dui, ut tristique arcu lobortis vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Donec posuere lectus nulla. Cras finibus metus quis orci tempus, lacinia gravida ligula congue. Sed vitae nisl nunc. Quisque suscipit convallis dolor, sit amet tristique massa maximus a. Vestibulum tristique, lectus vitae lacinia euismod, turpis massa faucibus est, sed placerat nisl sapien id augue. Nullam cursus sem a arcu dignissim, eget semper enim posuere. Integer ac faucibus eros. Mauris sed volutpat augue, sed molestie dui. Nam vel sollicitudin arcu.";
         SeaCreature seaCreature=null;
 
         SeaCreature seaCreature1 = new SeaCreature(1,"Cephalopholis argus",blueSpoted,image1,"Blue dot grouper",57.04075,10.55516);
@@ -81,17 +81,6 @@ public class Service {
         seaCreatures.add(seaCreature9);
         seaCreatures.add(seaCreature10);
 
-        /*for (int i = 0; i < 20; i++) {
-
-            seaCreature = new SeaCreature(i,"Fish"+i,"it is a nice fish"+i+loremipsum,image,"fish/round",i*10,i*2);
-            seaCreatures.add(seaCreature);
-        }
-        for (int i = 20; i < 40; i++) {
-
-            seaCreature = new SeaCreature(i,"Plant"+i,"My pant is green"+i,image,"plant/tall",i*2,i*10);
-            seaCreatures.add(seaCreature);
-        }
-        */
     }
 
     public ArrayList<SeaCreature> getSeaCreatures() {
@@ -123,11 +112,34 @@ public class Service {
         seaCreaturesForUser.add(seaCreature3);
         seaCreaturesForUser.add(seaCreature4);
 
-
-
-
-
         return seaCreaturesForUser;
+
+    }
+    public List<SeaCreature> getSeaFood(){
+
+
+        seaFood=new ArrayList<SeaCreature>();
+
+
+        int image1=R.drawable.seafoodone;
+        int image2=R.drawable.seafoodtwo;
+        int image3=R.drawable.seafoodthree;
+        int image4=R.drawable.seafoodfour;
+        String tacos="To make beer batter: In a large bowl, combine flour, cornstarch, baking powder, and salt. Blend egg and beer, then quickly stir into the flour mixture (don't worry about a few lumps).";
+        String marinated="In a large bowl, stir together the garlic, olive oil, tomato sauce, and red wine vinegar. Season with basil, salt, and cayenne pepper. Add shrimp to the bowl, and stir until evenly coated. Cover, and refrigerate for 30 minutes to 1 hour, stirring once or twice.";
+        String rockin="Clean oysters, and place in a large stockpot. Pour in beer and enough water to cover oysters; add 2 cloves garlic, seasoned salt, and peppercorns. Bring to a boil. Remove from heat, drain, and cool.";
+        String salmon="In a medium glass bowl, prepare marinade by mixing garlic, light olive oil, basil, salt, pepper, lemon juice and parsley. Place salmon fillets in a medium glass baking dish, and cover with the marinade. Marinate in the refrigerator about 1 hour, turning occasionally";
+        SeaCreature seaCreature1 = new SeaCreature(1,"Fish Tacos",tacos,image1,"Tacos",10,10);
+        SeaCreature seaCreature2 = new SeaCreature(2,"Marinated Grilled Shimp",marinated,image2,"Shrimp",10,11);
+        SeaCreature seaCreature3 = new SeaCreature(3,"Rockin' Oysters",rockin,image3,"Oysters",10,12);
+        SeaCreature seaCreature4 = new SeaCreature(4,"Baked Salmon II",salmon,image4,"Salmon",10,13);
+
+        seaFood.add(seaCreature1);
+        seaFood.add(seaCreature2);
+        seaFood.add(seaCreature3);
+        seaFood.add(seaCreature4);
+
+        return seaFood;
 
     }
 }

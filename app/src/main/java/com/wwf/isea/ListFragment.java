@@ -3,12 +3,12 @@ package com.wwf.isea;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import it.gmariotti.cardslib.library.extra.staggeredgrid.internal.CardGridStaggeredArrayAdapter;
 import it.gmariotti.cardslib.library.extra.staggeredgrid.view.CardGridStaggeredView;
@@ -93,6 +93,21 @@ public class ListFragment extends Fragment {
         return cards;
     }
 
+    private ArrayList<Card> getSeaFoodCards() {
+        ArrayList<Card> cards= new ArrayList<Card>();
+        Service service=Service.getInstance();
+
+        List<SeaCreature> seaCreatures= service.getSeaFood();
+
+        for(SeaCreature s: seaCreatures){
+            SeaCreatureCard sCard= new SeaCreatureCard(getActivity(),R.layout.card_seacreature);
+            sCard.setSeaCreature(s);
+
+            cards.add(sCard);
+        }
+
+        return cards;
+    }
     private ArrayList<Card> getCards() {
         ArrayList<Card> cards= new ArrayList<Card>();
         Service service=Service.getInstance();

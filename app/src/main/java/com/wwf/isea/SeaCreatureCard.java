@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.internal.Card;
 
@@ -60,8 +59,9 @@ public class SeaCreatureCard extends Card {
         if (description!=null)
             description.setText(seaCreature.getDescription());
 
-        if (imageView!=null)
+        if (imageView!=null) {
             imageView.setImageResource(seaCreature.getImagePath());
+        }
     }
 
 

@@ -42,14 +42,14 @@
         <RatingBar
             android:id="@+id/ratingBar"
 
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/imageView1"
 
             android:numStars="5"
-            android:rating="3"
-            android:stepSize="1.0" />
+            android:rating="5"
+            android:stepSize="0.0" />
 
         <TextView
             android:id="@+id/textViewEmail"

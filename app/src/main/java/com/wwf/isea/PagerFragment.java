@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class PagerFragment extends Fragment {
             ViewGroup rootView = (ViewGroup) inflater.inflate(
                     R.layout.fragment_main, container, false);
 
+
             TextView q=(TextView) rootView.findViewById(R.id.quiz_text_question);
             final RadioButton s1=(RadioButton) rootView.findViewById(R.id.quiz_text_ans1);
             RadioButton s2=(RadioButton) rootView.findViewById(R.id.quiz_text_ans2);
@@ -51,6 +53,24 @@ public class PagerFragment extends Fragment {
             s2.setText(answer2);
 
 
+            if (position==5) {
+                s1.setVisibility(View.INVISIBLE);
+                q.setVisibility(View.INVISIBLE);
+                s2.setVisibility(View.INVISIBLE);
+
+                btn_Next.setVisibility(View.INVISIBLE);
+                btn_Previous.setVisibility(View.INVISIBLE);
+                ImageView img=(ImageView) rootView.findViewById(R.id.quiz_img);
+                img.setImageResource(R.drawable.cucumber);
+                final Activity activity=getActivity();
+                img.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        activity.finish();
+                    }
+                });
+
+            }
             btn_Next.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -88,19 +108,9 @@ public class PagerFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnNextPageListener");
         }
-        if (isFinished==true) {
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
 
-            alertDialog.setMessage("YOU KNOW YOUR FISHES ");
-            alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
 
-                }
-            });
-            alertDialog.setIcon(R.drawable.sea_monster);
-            alertDialog.show();
 
-        }
 
 
     }
@@ -149,10 +159,14 @@ public class PagerFragment extends Fragment {
                 answer2="No";
                 break;
             }
-            case 5:
-            {
-                isFinished=true;
+            case 5: {
+                question = "Is it a fish?" + position;
+                answer1 = "Yes";
+                answer2 = "No";
+                break;
             }
+
+
 
         }
     }

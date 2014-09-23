@@ -46,6 +46,7 @@
         />
     </RadioGroup>
     <ImageView
+        android:id="@+id/quiz_img"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"

@@ -1,5 +1,6 @@
 package com.wwf.isea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -28,7 +29,6 @@ public class PagerActivity extends FragmentActivity implements PagerFragment.OnN
      * The pager adapter, which provides the pages to the view pager widget.
      */
     private PagerAdapter mPagerAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +38,8 @@ public class PagerActivity extends FragmentActivity implements PagerFragment.OnN
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+
     }
 
 

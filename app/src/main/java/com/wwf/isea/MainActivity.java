@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity
@@ -79,7 +80,7 @@ public class MainActivity extends Activity
                 Bundle bundle = new Bundle();
                 myLocation = new MyLocation(MainActivity.this);
                 Log.d("In MainActivity", myLocation.getLongitude() + "");
-                bundle.putParcelableArrayList("array",Service.getInstance().getSeaCreatures());
+                bundle.putParcelableArrayList("array", Service.getInstance().getSeaCreatures());
                 bundle.putDouble(Service.LONGITUDE, myLocation.getLongitude());
                 bundle.putDouble(Service.LATITUDE, myLocation.getLatitude());
                 mapFragment.setArguments(bundle);
@@ -96,8 +97,17 @@ public class MainActivity extends Activity
                         .commit();
                 break;
             }
+            case 5:
+            {
+                Intent intent = new Intent(this, AddPhotoActivity.class);
+                startActivity(intent);
+                break;
+            }
             case 6:
                 Intent intent = new Intent(this, PagerActivity.class);
+                Bundle bundle= new Bundle();
+                bundle.putBoolean("isquiz",true);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 break;
             default:
@@ -124,6 +134,12 @@ public class MainActivity extends Activity
                 mTitle = getString(R.string.drawer_4_log);
                 break;
             case 5:
+                mTitle = getString(R.string.action_Food);
+                break;
+            case 6:
+                mTitle = getString(R.string.action_addPhoto);
+                break;
+            case 7:
                 mTitle = getString(R.string.drawer_5_quiz);
                 break;
         }

@@ -74,13 +74,30 @@ public class MainActivity extends Activity
                 startActivity(intentCamera);
                 break;
             }
+            case 1:
+            {
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, ListFragment.newInstance(position + 1))
+                        .commit();
+
+                break;
+            }
             case 2: {
 
                 Fragment mapFragment = MyMapFragment.newInstance(position + 1);
                 Bundle bundle = new Bundle();
                 myLocation = new MyLocation(MainActivity.this);
                 Log.d("In MainActivity", myLocation.getLongitude() + "");
-                bundle.putParcelableArrayList("array", Service.getInstance().getSeaCreatures());
+                if(myLocation.getLongitude()==0){
+                    Context context = getApplicationContext();
+                    CharSequence text = "Could not find network or GPS signal!";
+                    int duration = Toast.LENGTH_LONG;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                }
+                bundle.putParcelableArrayList("array",Service.getInstance().getSeaCreatures());
                 bundle.putDouble(Service.LONGITUDE, myLocation.getLongitude());
                 bundle.putDouble(Service.LATITUDE, myLocation.getLatitude());
                 mapFragment.setArguments(bundle);
@@ -96,6 +113,16 @@ public class MainActivity extends Activity
                 fragmentManager.beginTransaction().replace(R.id.container, ProfileFragment.newInstance(position + 1))
                         .commit();
                 break;
+            }
+            case 4:{
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, ListFragment.newInstance(position + 1))
+                        .commit();
+
+                break;
+
+
             }
             case 5:
             {
@@ -134,14 +161,13 @@ public class MainActivity extends Activity
                 mTitle = getString(R.string.drawer_4_log);
                 break;
             case 5:
-                mTitle = getString(R.string.action_Food);
+                mTitle = getString(R.string.drawer_5_food);
                 break;
             case 6:
-                mTitle = getString(R.string.action_addPhoto);
+                mTitle= getString(R.string.drawer_6_add);
                 break;
             case 7:
-                mTitle = getString(R.string.drawer_5_quiz);
-                break;
+                mTitle= getString(R.string.drawer_7_quiz);
         }
     }
 

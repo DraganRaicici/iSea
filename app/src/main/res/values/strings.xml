@@ -6,7 +6,9 @@
     <string name="drawer_2_search">Search</string>
     <string name="drawer_3_map">Near you</string>
     <string name="drawer_4_log">My Profile</string>
-    <string name="drawer_5_quiz">Quiz</string>
+    <string name="drawer_5_food">Sea Food</string>
+    <string name="drawer_6_add">Add Photo</string>
+    <string name="drawer_7_quiz">Quiz</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">__</string>

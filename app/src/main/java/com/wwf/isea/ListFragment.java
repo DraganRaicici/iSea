@@ -29,6 +29,7 @@ public class ListFragment extends Fragment {
 
         private Boolean searched=false;
         private String mQuery="";
+       // private int sectionNumber;
         /**
          * Returns a new instance of this fragment for the given section
          * number.
@@ -51,9 +52,19 @@ public class ListFragment extends Fragment {
 
             CardGridStaggeredView cListView= new CardGridStaggeredView(getActivity());
             ArrayList<Card> cards=null;
-            if(searched==true){
-                cards=getSearchedCards();
-            }else {
+            Bundle b=getArguments();
+
+            if(b.getInt(ARG_SECTION_NUMBER)==2){
+                cards=getCards();
+            }
+             else if(b.getInt(ARG_SECTION_NUMBER)==5){
+                cards=getSeaFoodCards();
+            }
+
+            else if(b.getInt(ARG_SECTION_NUMBER)==2 && searched==true) {
+                cards = getSearchedCards();
+            }
+            else {
 
                 cards= getCards();
             }

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
  * Created by rdgary on 9/22/14.
  *
  */
-public class MyMapFragment extends Fragment{
+public class MyMapFragment extends Fragment {
 
 
     private GoogleMap mMap;
@@ -40,9 +41,9 @@ public class MyMapFragment extends Fragment{
 
     public static MyMapFragment newInstance(int sectionNumber) {
         MyMapFragment fragment = new MyMapFragment();
-       // Bundle args = new Bundle();
-       // args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-        //fragment.setArguments(args);
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        fragment.setArguments(args);
         return fragment;
     }
 
@@ -65,7 +66,9 @@ public class MyMapFragment extends Fragment{
             Bundle bundle=getArguments();
             longitude= bundle.getDouble(Service.LONGITUDE);
             latitude=bundle.getDouble(Service.LATITUDE);
+            Log.v("aaa",longitude+" "+latitude+"");
             int zoom=10;
+            //mMap.moveCamera(CameraUpdateFactory.);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), zoom));
 
             LatLng myPosition= new LatLng(latitude,longitude);
